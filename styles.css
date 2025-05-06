@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    font-family: sans-serif;
+    height: 100%;
+    padding: initial;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+body {
+    background-color: #474343;
+    color: rgb(252, 252, 252);
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: 300;
+    flex: 0 1 auto;
+    min-height: 100%;
+    justify-content: flex-start;
+
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin: 1em;
+}
+
+input[id="task"] {
+    border: hidden;
+    border-bottom-left-radius: 5px;
+    border-left: solid 1px #fff;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding: 5px;
+    outline: none;
+    transition: all 0.3s ease
+}
+
+input[id="task"]:focus {
+    outline: none;
+    border-bottom: 2px solid #570707;
+    /* só engrossa a borda */
+    border-left: 2px solid #760303;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: #3b0404;
+    width: 100%;
+    font-size: inherit;
+}
+
+
+.addTaskBtn {
+    padding: 10px;
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #b71d1d;
+    color: #fff;
+    transition: all 0.3s ease-in;
+}
+
+.addTaskBtn:active {
+    transform: scale(0.95);
+    /* dá um "apertado" */
+    background-color: #490a0a;
+    transition: all 0.3s ease-in;
+}
+
+.actionDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.actionDiv, #updateBtn {
+    display: flex;
+    gap: 8px;
+}  
+#sectionInputs {
+    width: 19.4em;
+  }
+.taskText, #updateInput {
+    min-height: 1.4em;
+    line-height: 1.4em;
+    font-size: 0.96em;
+    white-space: nowrap;
+    word-break: break-word;
+    white-space: normal;
+
+    font-weight: 400;
+    color: white;
+    width: inherit;
+    
+}
+
+#updateInput {
+    all: unset;
+    display: inline;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    font-size: 0.96em;
+    width: 100%;
+    min-width: 8.2em;
+        white-space: nowrap;
+
+    max-width: 100%;
+
+}
+
+#updateInput:focus-visible {
+    outline: none;
+    color: white;
+    font-size: 0.96em;
+    width: 100%;
+    min-width: 8.2em;
+    max-width: 100%;
+}
+
+
+#updateBtn,
+#deleteBtn,
+#completeBtn {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #b71d1d;
+    min-width: 90px;
+    /* 👈 Define uma largura mínima baseada no maior texto */
+    text-align: center;
+    white-space: nowrap;
+    /* 👈 Evita quebra de linha no texto */
+
+}
+
+@media screen and (max-width: 400px) {
+
+    html,
+    body {
+        font-family: sans-serif;
+        height: 100%;
+        padding: initial;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+    }
+
+    .task,
+    .addTaskBtn {
+        display: flex;
+        text-align: center;
+        margin: 10px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .addTaskBtn:active {
+        transform: scale(0.95);
+        /* dá um "apertado" */
+        background-color: #490a0a;
+        transition: all 0.3s ease-in;
+        box-shadow: 0px 5px 5px #350801;
+    }
+
+    .addTaskBtn {
+        padding: 10px;
+        margin-left: 8px;
+        border: none;
+        border-radius: 2px;
+        background-color: #b71d1d;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+
+
+}
