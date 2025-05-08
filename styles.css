@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --btn-width: 100px;
+  }  
+::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -9,76 +19,84 @@ body {
     font-family: sans-serif;
     height: 100%;
     padding: initial;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 body {
     background-color: #474343;
     color: rgb(252, 252, 252);
     padding: 10px;
-    font-size: 1.2em;
+    font-size: larger;
+    font-family: "Poppins", sans-serif;
+    /* Aplica em tudo */
     font-weight: 300;
-    flex: 0 1 auto;
-    min-height: 100%;
+    flex: 1 0 auto;
     justify-content: flex-start;
-
+    min-height: 100%;
+    min-width: 100%;
 }
 
 h1 {
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 4em;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
     display: block;
-    margin: 1em;
+    margin: 50px;
 }
 
+.app {
+    background: #eac492e5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 8px 8px aliceblue;
+    width: 40em;
+}
+
+.taskForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+
+
 input[id="task"] {
-    border: hidden;
-    border-bottom-left-radius: 5px;
-    border-left: solid 1px #fff;
-    border-bottom: 1px solid #fff;
-    background-color: transparent;
-    color: #fff;
-    font-size: 1.2em;
+    border: solid 1px;
+    border-radius: 1em;
+    background-color: aliceblue;
+    color: #787878;
+    font-size: large;
     font-weight: 400;
-    padding: 5px;
+    width: 100%;
     outline: none;
-    transition: all 0.3s ease
+    padding: 10px;
 }
 
 input[id="task"]:focus {
     outline: none;
-    border-bottom: 2px solid #570707;
-    /* só engrossa a borda */
-    border-left: 2px solid #760303;
+    border: solid 2px;
 }
-
-li {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    list-style: none;
-    padding: 10px;
-    margin: 10px 0px;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    background-color: #3b0404;
-    width: 100%;
-    font-size: inherit;
-}
-
 
 .addTaskBtn {
-    padding: 10px;
-    margin-left: 8px;
+    width: 100px;
     cursor: pointer;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: #b71d1d;
     color: #fff;
     transition: all 0.3s ease-in;
@@ -91,124 +109,228 @@ li {
     transition: all 0.3s ease-in;
 }
 
-.actionDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.actionDiv, #updateBtn {
-    display: flex;
-    gap: 8px;
-}  
-#sectionInputs {
-    width: 19.4em;
-  }
-.taskText, #updateInput {
-    min-height: 1.4em;
-    line-height: 1.4em;
-    font-size: 0.96em;
-    white-space: nowrap;
-    word-break: break-word;
-    white-space: normal;
-
-    font-weight: 400;
-    color: white;
-    width: inherit;
-    
-}
-
-#updateInput {
-    all: unset;
-    display: inline;
-    background-color: transparent;
-    outline: none;
-    color: white;
-    font-size: 0.96em;
-    width: 100%;
-    min-width: 8.2em;
-        white-space: nowrap;
-
-    max-width: 100%;
-
-}
-
-#updateInput:focus-visible {
-    outline: none;
-    color: white;
-    font-size: 0.96em;
-    width: 100%;
-    min-width: 8.2em;
-    max-width: 100%;
-}
-
-
-#updateBtn,
-#deleteBtn,
-#completeBtn {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.clearAllBtn {
+    width: 100px;
     cursor: pointer;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
+    background-color: #b71d1d;
+    color: #fff;
+    transition: all 0.3s ease-in;
+}
+
+.clearAllBtn:active {
+    transform: scale(0.95);
+    /* dá um "apertado" */
+    background-color: #490a0a;
+    transition: all 0.3s ease-in;
+}
+
+section {
+    min-width: 100%;
+}
+
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style: none;
+    padding: 10px;
+    margin: 15px 0px;
+    border: 2px solid #fff;
+    border-radius: 0px 10px;
+    font-size: inherit;
+}
+
+.taskText {
+    display: inline;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: white;
+    text-transform: capitalize;
+    line-height: 1.4em;
+    width: 100%;
+}
+
+.actionDiv,
+.taskText {
+    display: flex;
+}
+
+.updateInput {
+    display: none;
+    all: unset;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    line-height: 1.4em;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#updateInput:focus {
+    display: block;
+}
+
+.updateBtn,
+.deleteBtn,
+.completeBtn {
+    margin: 5px;
+    padding: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
     background-color: #b71d1d;
     min-width: 90px;
+    transition: all 0.3s ease-in;
     /* 👈 Define uma largura mínima baseada no maior texto */
     text-align: center;
     white-space: nowrap;
     /* 👈 Evita quebra de linha no texto */
-
 }
 
-@media screen and (max-width: 400px) {
+.updateBtn:active,
+.deleteBtn:active,
+.completeBtn:active {
+    transform: scale(0.95);
+    /* dá um "apertado" */
+    background-color: #490a0a;
+    transition: all 0.3s ease-in;
+}
 
-    html,
+@media screen and (max-width: 740px) {
     body {
-        font-family: sans-serif;
-        height: 100%;
-        padding: initial;
-        width: 100%;
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
-
+        width: 100%;
     }
 
-    .task,
-    .addTaskBtn {
+    .app {
+        width: 95%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .task{
+        width: 100%!important;
+        font-size: large!important;
+    }
+    .actionDiv{
         display: flex;
+        flex-direction: row;
+    }
+    .updateInput{
+        width: 100%;
+    }
+    .addTaskBtn,
+    .clearAllBtn {
+        width: var(--btn-width);
+        padding: 6px;
+    }
+}
+@media screen and (max-width: 740px) {
+    body {
+        display: flex;
+        width: 100%;
+    }
+
+    .app,
+    .container,
+    .updateInput {
+        width: 100%;
+    }
+
+    .app {
+        width: 95%;
+    }
+
+    .task {
+        width: 100% !important;
+        font-size: large !important;
+    }
+
+    .actionDiv {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .addTaskBtn,
+    .clearAllBtn {
+        width: var(--btn-width);
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .updateInput,
+    li,
+    .taskText {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .actionDiv,
+    .updateInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .actionDiv {
+        flex-direction: row; /* sobrescreve a coluna de cima */
+    }
+
+    .addTaskBtn,
+    .clearAllBtn {
+        width: 100px;
+    }
+    .updateBtn,
+    .completeBtn,
+    .deleteBtn{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .actionDiv {
+        justify-content: center;
         text-align: center;
-        margin: 10px;
+        flex-wrap: wrap;
     }
 
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
+    .addTaskBtn,
+    .clearAllBtn {
+        width: var(--btn-width);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .task {
+        font-size: small !important;
     }
 
-    .addTaskBtn:active {
-        transform: scale(0.95);
-        /* dá um "apertado" */
-        background-color: #490a0a;
-        transition: all 0.3s ease-in;
-        box-shadow: 0px 5px 5px #350801;
+    .actionDiv {
+        justify-content: center;
+        flex-wrap: wrap;
     }
-
-    .addTaskBtn {
-        padding: 10px;
-        margin-left: 8px;
-        border: none;
-        border-radius: 2px;
-        background-color: #b71d1d;
-        color: #fff;
-        transition: all 0.3s ease-in-out;
-    }
-
-
 }
