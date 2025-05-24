@@ -2,37 +2,40 @@ const fs = require('node:fs');
 
 fs.existsSync("data/tasks.json") ? console.log("File exists") : console.log("File does not exist");
 
-const taskModel ={
-    getAllTasks(){
-        const tasks = fs.readFileSync("data/tasks.json","utf-8")
-        return JSON.parse(tasks)
+const taskModel = {
+    getAllTasks() {
+        try {
+            const tasks = fs.readFileSync("data/tasks.json", "utf-8")
+            return JSON.parse(tasks || "[]");
+
+        } catch (error) {
+            console.error("Erro ao ler tarefa:", error);
+            return [];
+        }
     },
-    getTaskById(id){
+    getTaskById(id) {
         const tasks = this.getAllTasks();
         return tasks.find(task => task.id === id);
     },
-    createTask(title, description, status = "pendente", date){
+    createTask(title, done = false) {
         const tasks = this.getAllTasks();
-        const newTask ={
+        const newTask = {
             id: Date.now().toString(),
             title,
-            description,
-            status,
-            date,
-            createdAt: new Date().toISOString()
+            done,
         }
         tasks.push(newTask);
         this.saveTasks(tasks);
         return newTask;
     },
-    saveTasks(taskBd){
+    saveTasks(taskBd) {
         fs.writeFileSync("data/tasks.json", JSON.stringify(taskBd, null, 2));
 
     },
-    updateTask(id, updatedData){
+    updateTask(id, updatedData) {
         const tasks = this.getAllTasks();
         const task = tasks.find(task => task.id === id);
-        if(!task){
+        if (!task) {
             console.log("Task not found");
             return null;
         }
@@ -40,12 +43,15 @@ const taskModel ={
         this.saveTasks(tasks);
         return task;
     },
-    deleteTask(Id){
+    deleteTask(id) {
         const tasks = this.getAllTasks();
-        const updatedTasks = tasks.filter(task => task.id !== Id);
+        const taskToDelete = tasks.find(task => task.id === id);
+        if (!taskToDelete) return null;
+
+        const updatedTasks = tasks.filter(task => task.id !== id);
         this.saveTasks(updatedTasks);
-        return updatedTasks;
-    }
+        return taskToDelete;
+    },
 
 }
 module.exports = taskModel;

@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List | Meu dia</title>
-    
+    <link rel="shortcut icon" type="image/png" href="/public/logo.svg" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="error-container" style="display: none;" class="error-box"></div>
+    <div id="loading" class="loading-box"></div>
     <h1>To-do List</h1>
     <main class="app">
         <form class="taskForm" >
             <div class="container">
+                <label for="task"  class="visually-hidden">Digite sua tarefa</label>
                 <input type="text" class="task" id="task" placeholder="Qual tarefa para hoje?" >
                 <button type="submit" class="addTaskBtn" id="addTaskBtn">Adicionar</button>
-                <button id="clearAllBtn" class="clearAllBtn" type="submit">Excluir Todas</button>
+                <button id="clearAllBtn" class="clearAllBtn" type="button">Excluir Todas</button>
             </div>
-            <section>
+            <section id="sectionInputs" class="fade-in loaded">
                 <ul id="tasksContainer" class="sectionInputs">
                 </ul>
+                <div id="empty" class="empty-message" style="display: none;">🔍 Lista de tarefas vazia!</div>
             </section>
             <br>
         </form>
     </main>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
